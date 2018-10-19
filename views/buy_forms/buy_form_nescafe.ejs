@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Order-iBusiness</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/nav.css" />
+    <link rel="stylesheet" href="../assets/css/buy.css" />
+    <link rel="stylesheet" href="../assets/css/footer.css" />
+    <link rel="stylesheet" href="../assets/css/contactDiv.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+  </head>
+  <body>
+    <% include ../partials/navbar.ejs %>
+    <div class="container">
+      <div class="buy-page-first-section">
+        <h1>Order</h1>
+      </div>
+      <div class="buy-page-second-section">
+        <% if (Nsuccess) { %>
+          <div class="alert alert-success" role="alert">
+            <i class="fas fa-check"></i> Your order is sent
+          </div>
+        <% } else { %>
+          <h2>Your Order</h2>
+          <form method="POST" action="/nescafe_order">
+            <div class="form-row">
+              <div class="form-group col">
+                <label for="exampleInputProduct1">Product</label>
+                <input class="form-control" id="exampleInputProduct1" type="text" placeholder="Nescafe Classic Natural" readonly>
+              </div>
+              <div class="form-group col">
+                <label for="exampleInputQuantity1">Quantity</label>
+                <% if (NorderErrors) { %>
+                  <% counter = false %>
+                  <% NorderErrors.forEach( function (err){ %>
+                    <% if(err.param === 'quantity') { %>
+                      <input type="text" name="quantity" class="form-control is-invalid" id="exampleInputQuantity1" aria-describedby="emailHelp" placeholder="Enter quantity" value="80">
+                      <div class="invalid-feedback">
+                        <%= err.msg %>
+                      </div>
+                      <% counter = true %>
+                    <% } %>
+                  <% }) %>
+                  <% if (counter === false) { %>
+                    <input type="text" name="quantity" class="form-control" id="exampleInputQuantity1" aria-describedby="emailHelp" placeholder="Enter quantity" value="80">
+                  <% } %>
+                <% } else { %>
+                  <input type="text" name="quantity" class="form-control" id="exampleInputQuantity1" aria-describedby="emailHelp" placeholder="Enter quantity" value="80">
+                <% } %>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputAddress2">Delivery Address</label>
+              <input type="text" name="address" class="form-control" id="exampleInputAddress2" aria-describedby="addressHelp" placeholder="Enter Street Adress" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group col">
+                <input type="text" name="city" class="form-control" id="exampleInputCity2" aria-describedby="cityHelp" placeholder="Enter City" required>
+              </div>
+              <div class="form-group col">
+                <input type="text" name="postalCode" class="form-control" id="exampleInputPostalCode2" aria-describedby="postalCodeHelp" placeholder="Enter Postal Code" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputCredit1">Credit Card</label>
+              <input type="password" class="form-control" id="exampleInputCredit1" placeholder="Enter credit card details...">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Special Delivery Instructions</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="8"></textarea>
+            </div>
+            <button type="submit" class="btn btn-danger">PLACE YOUR ORDER</button>
+          </form>
+        <% } %>
+      </div>
+    </div>
+    <% include ../partials/contactDiv.ejs %>
+    <% include ../partials/footer.ejs %>
+  </body>
+  <script src="../assets/jquery-3.3.1.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="../assets/ecmascript/form_view_control.js"></script>
+  <script src="../assets/ecmascript/navbar_view_control.js"></script>
+</html>

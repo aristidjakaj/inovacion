@@ -1,0 +1,22 @@
+#contact{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 1%;
+  background-color: #E8ECF8;
+  height: 200px;
+}
+
+#contact div{
+  display: flex;
+  flex-direction: column;
+}
+
+#contact a {
+  width: 200px;
+  font-size: 150%;
+}
+
+#contact h2{
+  color: #000;
+}

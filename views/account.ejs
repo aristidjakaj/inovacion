@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Account-iBusiness</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/nav.css" />
+    <link rel="stylesheet" href="../assets/css/account.css" />
+    <link rel="stylesheet" href="../assets/css/footer.css" />
+    <link rel="stylesheet" href="../assets/css/contactDiv.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/x-icon" href="../icon.ico">
+  </head>
+  <body>
+    <% include partials/navbar.ejs %>
+    <div class="container">
+      <div class="account-page-first-section">
+        <h1>ACCOUNT</h1>
+      </div>
+      <% if (success) { %>
+        <div class="account-page-second-section">
+          <div class="layout" style="padding: 5%; align-items: center;">
+            <div class="card" style="width: 20rem; background-color: transparent; border-color: #dc3545;">
+              <div style="display: flex; align-items: center; justify-content: center; padding: 0.5rem">
+                <i class="far fa-user-circle" style="font-size: 8rem; color: #dc3545;"></i>
+              </div>
+            <div class="card-body" style="display: flex; align-items: center; justify-content: center">
+              <h3 class="card-title" style="color: #dc3545;">Welcome <%= name %></h3>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item" style="display: flex; align-items: center; justify-content: center;"><a href="/logout" class="btn btn-outline-danger btn-block">Logout</a></li>
+            </ul>
+           </div>
+          </div>
+        </div>
+      <% } else { %>
+        <div class="account-page-second-section">
+          <div class="layout">
+            <div class="wrapper">
+              <button id="signup_button" type="button" class="btn btn-outline-danger">Sign Up</button>
+              <button id="login_button" type="button" class="btn btn-outline-danger">Log In</button>
+            </div>
+            <div id="signupSection">
+              <h2>Sign Up for Free</h2>
+              <form method="POST" action="/sign-up">
+                  <div class="form-row">
+                    <div class="form-group col">
+                      <label for="exampleInputFirstName1">Business Owner</label>
+                      <input type="text" name="firstName" class="form-control" id="exampleInputFirstName1" aria-describedby="firstNameHelp" placeholder="Enter First Name" required>
+                    </div>
+                    <div class="form-group col">
+                      <label id="labelExampleInputLasttName1" for="exampleInputLasttName1">last</label>
+                      <input type="text" name="lastName" class="form-control" id="exampleInputLastName1" aria-describedby="lastNameHelp" placeholder="Enter Last Name" required>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputBusinessName1">Business Name</label>
+                    <% if (errors) { %>
+                      <% counter = false %>
+                      <% errors.forEach( function (err){ %>
+                        <% if(err.param === 'businessName') { %>
+                          <input type="text" name="businessName" class="form-control is-invalid" id="exampleInputBusinessName1" aria-describedby="businessNameHelp" placeholder="Enter Business Name" required>
+                          <div class="invalid-feedback">
+                            <%= err.msg %>
+                          </div>
+                          <% counter = true %>
+                        <% } %>
+                      <% }) %>
+                      <% if (counter === false) { %>
+                        <input type="text" name="businessName" class="form-control" id="exampleInputBusinessName1" aria-describedby="businessNameHelp" placeholder="Enter Business Name" required>
+                      <% } %>
+                    <% } else { %>
+                      <input type="text" name="businessName" class="form-control" id="exampleInputBusinessName1" aria-describedby="businessNameHelp" placeholder="Enter Business Name" required>
+                    <% } %>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPhoneNumber1">Phone Number</label>
+                    <% if (errors) { %>
+                      <% counter = false %>
+                      <% errors.forEach( function (err){ %>
+                        <% if(err.param === 'phoneNumber') { %>
+                          <input type="text" name="phoneNumber" class="form-control is-invalid" id="exampleInputPhoneNumber1" aria-describedby="phoneNumberHelp" placeholder="Enter Phone Number" required>
+                          <div class="invalid-feedback">
+                            <%= err.msg %>
+                          </div>
+                          <% counter = true %>
+                        <% } %>
+                      <% }) %>
+                      <% if (counter === false) { %>
+                        <input type="text" name="phoneNumber" class="form-control" id="exampleInputPhoneNumber1" aria-describedby="phoneNumberHelp" placeholder="Enter Phone Number" required>
+                      <% } %>
+                    <% } else { %>
+                      <input type="text" name="phoneNumber" class="form-control" id="exampleInputPhoneNumber1" aria-describedby="phoneNumberHelp" placeholder="Enter Phone Number" required>
+                    <% } %>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <% if (errors) { %>
+                      <% counter = false %>
+                      <% errors.forEach( function (err){ %>
+                        <% if(err.param === 'email') { %>
+                          <input type="email" name="email" class="form-control is-invalid" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email" required>
+                          <div class="invalid-feedback">
+                            <%= err.msg %>
+                          </div>
+                          <% counter = true %>
+                        <% } %>
+                      <% }) %>
+                      <% if (counter === false) { %>
+                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email" required>
+                        <small id="emailHelp" class="form-text text-muted">example@example.com</small>
+                      <% } %>
+                    <% } else { %>
+                      <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email" required>
+                      <small id="emailHelp" class="form-text text-muted">example@example.com</small>
+                    <% } %>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <% if (errors) { %>
+                      <% counter = false %>
+                      <% errors.forEach( function (err){ %>
+                        <% if(err.param === 'password') { %>
+                          <input type="password" name="password" class="form-control is-invalid" id="exampleInputPassword1" placeholder="Enter Password" required>
+                          <div class="invalid-feedback">
+                            <%= err.msg %>
+                          </div>
+                          <% counter = true %>
+                        <% } %>
+                      <% }) %>
+                      <% if (counter === false) { %>
+                        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password" required>
+                        <small id="emailHelp" class="form-text text-muted">Password must be at least 6 characters</small>
+                      <% } %>
+                    <% } else { %>
+                      <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password" required>
+                      <small id="emailHelp" class="form-text text-muted">Password must be at least 6 characters</small>
+                    <% } %>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputConfirmPassword1">Confirm Password</label>
+                    <input type="password" name="confirmPassword" class="form-control" id="exampleInputConfirmPassword1" placeholder="Re-enter Password" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleNIPT1">NIPT</label>
+                    <% if (errors) { %>
+                      <% counter = false %>
+                      <% errors.forEach( function (err){ %>
+                        <% if(err.param === 'NIPT') { %>
+                          <input type="text" name="NIPT" class="form-control is-invalid" id="exampleInputNIPT1" aria-describedby="NIPTHelp" placeholder="Enter NIPT" required>
+                          <div class="invalid-feedback">
+                            <%= err.msg %>
+                          </div>
+                          <% counter = true %>
+                        <% } %>
+                      <% }) %>
+                      <% if (counter === false) { %>
+                        <input type="text" name="NIPT" class="form-control" id="exampleInputNIPT1" aria-describedby="NIPTHelp" placeholder="Enter NIPT" required>
+                      <% } %>
+                    <% } else { %>
+                      <input type="text" name="NIPT" class="form-control" id="exampleInputNIPT1" aria-describedby="NIPTHelp" placeholder="Enter NIPT" required>
+                    <% } %>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputAddress1">Address</label>
+                    <input type="text" name="address" class="form-control" id="exampleInputAddress1" aria-describedby="addressHelp" placeholder="Enter Street Adress" required>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col">
+                      <input type="text" name="city" class="form-control" id="exampleInputCity1" aria-describedby="cityHelp" placeholder="Enter City" required>
+                    </div>
+                    <div class="form-group col">
+                      <input type="text" name="postalCode" class="form-control" id="exampleInputPostalCode1" aria-describedby="postalCodeHelp" placeholder="Enter Postal Code" required>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Business Type</label>
+                    <select class="custom-select my-1 mr-sm-2" name="type" id="inlineFormCustomSelectPref">
+                      <option selected value="0">Customer</option>
+                      <option value="1">Buyer</option>
+                      <option value="2">Both</option>
+                    </select>
+                  </div>
+                <button type="submit" class="btn btn-outline-danger btn-lg btn-block">GET STARTED</button>
+              </form>
+            </div>
+            <div id="loginSection" style="display: none;">
+              <h2>WELCOME BACK!</h2>
+              <form method="POST" action="/log-in">
+                  <div>
+                    <label for="exampleInputEmail2">Email address</label>
+                    <% if (logErrors) { %>
+                      <% counter = false %>
+                      <% logErrors.forEach( function (err){ %>
+                        <% if(err.param === 'logInEmail') { %>
+                          <input type="email" name="logInEmail" class="form-control is-invalid" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="Enter Email" required>
+                          <div class="invalid-feedback">
+                            <%= err.msg %>
+                          </div>
+                          <% counter = true %>
+                        <% } %>
+                      <% }) %>
+                      <% if (counter === false) { %>
+                        <input type="email" name="logInEmail" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="Enter Email" required>
+                        <small id="emailHelp" class="form-text text-muted">example@example.com</small>
+                      <% } %>
+                    <% } else { %>
+                      <input type="email" name="logInEmail" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="Enter Email" required>
+                      <small id="emailHelp" class="form-text text-muted">example@example.com</small>
+                    <% } %>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword2">Password</label>
+                    <% if (logErrors) { %>
+                      <% counter = false %>
+                      <% logErrors.forEach( function (err){ %>
+                        <% if(err.param === 'logInPassword') { %>
+                          <input type="password" name="logInPassword" class="form-control is-invalid" id="exampleInputPassword2" placeholder="Enter Password" required>
+                          <div class="invalid-feedback">
+                            <%= err.msg %>
+                          </div>
+                          <% counter = true %>
+                        <% } %>
+                      <% }) %>
+                      <% if (counter === false) { %>
+                        <input type="password" name="logInPassword" class="form-control" id="exampleInputPassword2" placeholder="Enter Password" required>
+                      <% } %>
+                    <% } else { %>
+                      <input type="password" name="logInPassword" class="form-control" id="exampleInputPassword2" placeholder="Enter Password" required>
+                    <% } %>
+                  </div>
+                <button type="submit" class="btn btn-outline-danger btn-lg btn-block">LOG IN</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      <% } %>
+    </div>
+    <% include partials/contactDiv.ejs %>
+    <% include partials/footer.ejs %>
+  </body>
+  <script src="../assets/jquery-3.3.1.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="../assets/ecmascript/form_view_control.js"></script>
+  <script src="../assets/ecmascript/navbar_view_control.js"></script>
+</html>

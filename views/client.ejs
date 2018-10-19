@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Clients-iBusiness</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/nav.css" />
+    <link rel="stylesheet" href="../assets/css/client.css" />
+    <link rel="stylesheet" href="../assets/css/footer.css" />
+    <link rel="stylesheet" href="../assets/css/contactDiv.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+  </head>
+  <body>
+    <% include partials/navbar.ejs %>
+    <div class="container">
+      <div class="client-page-first-section">
+        <h1>CLIENTS</h1>
+      </div>
+      <div class="client-page-second-section">
+        <div class="card border-primary" style="width: 18rem;">
+          <img class="card-img-top" src="../assets/images/neptun.png" alt="Card image cap" style=" height: 160px;">
+          <div class="card-body text-secondary">
+            <h5 class="card-title">Neptun</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#NeptunModalCenter">Check the Products</button>
+          </div>
+        </div>
+        <div class="card border-primary" style="width: 18rem;">
+          <img class="card-img-top" src="../assets/images/agna group.jpg" alt="Card image cap" style=" height: 160px;">
+          <div class="card-body text-secondary">
+            <h5 class="card-title">Agna Group</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#AgnaModalCenter">Check the Products</button>
+          </div>
+        </div>
+        <div class="card border-primary" style="width: 18rem;">
+          <img class="card-img-top" src="../assets/images/albancorp.png" alt="Card image cap" style=" height: 160px;">
+          <div class="card-body text-secondary">
+            <h5 class="card-title">AlbanCorp Group</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#AlbanCorpModalCenter">Check the Products</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade bd-example-modal-lg" id="NeptunModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="NeptunModalLongTitle">Neptun</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade bd-example-modal-lg" id="AgnaModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="AgnaModalLongTitle">Agna Group</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="modal-body-agna">
+                <div class="card" style="width: 18rem;">
+                  <img class="card-img-top" src="../assets/images/heineken.jpeg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">Heineken</h5>
+                    <p class="card-text"><strong class="text-info">75-80 ALL</strong>/bottle<br><strong class="text-info">100 bottles </strong> (min order)</p>
+                    <a href="/buy_heineken" target="_blank" class="btn btn-primary">Order Now</a>
+                  </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                  <img class="card-img-top" src="../assets/images/pepsi.png" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">Pepsi</h5>
+                    <p class="card-text"><strong class="text-info">35-40 ALL</strong>/can<br><strong class="text-info">150 cans </strong> (min order).</p>
+                    <a href="/buy_pepsi" target="_blank" class="btn btn-primary">Order Now</a>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-body-agna">
+                <div class="card" style="width: 18rem;">
+                  <img class="card-img-top" src="../assets/images/nescafe.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">Nescafe Classic Natural</h5>
+                    <p class="card-text"><strong class="text-info">90-120 ALL</strong>/package<br><strong class="text-info">80 packages </strong> (min order)</p>
+                    <a href="/buy_nescafe" target="_blank" class="btn btn-primary">Order Now</a>
+                  </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                  <img class="card-img-top" src="../assets/images/glina.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">Glina</h5>
+                    <p class="card-text"><strong class="text-info">20-25 ALL</strong>/bottle<br><strong class="text-info">200 bottles </strong> (min order)</p>
+                    <a href="/buy_glina" target="_blank" class="btn btn-primary">Order Now</a>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-body-agna">
+                <div class="card" style="width: 18rem;">
+                  <img class="card-img-top" src="../assets/images/dragon.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">Dragon Energy Drink</h5>
+                    <p class="card-text"><strong class="text-info">48-60 ALL</strong>/can<br><strong class="text-info">90 cans </strong> (min order)</p>
+                    <a href="/buy_dragon" target="_blank" class="btn btn-primary">Order Now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="AlbanCorpModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="AlbanCorpModalLongTitle">AlbanCorp Group</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% include partials/contactDiv.ejs %>
+    <% include partials/footer.ejs %>
+  </body>
+  <script src="../assets/jquery-3.3.1.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="../assets/ecmascript/form_view_control.js"></script>
+  <script src="../assets/ecmascript/navbar_view_control.js"></script>
+</html>

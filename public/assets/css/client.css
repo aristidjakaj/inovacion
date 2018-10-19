@@ -1,0 +1,42 @@
+.container{
+  max-width: 100%;
+  margin-top: 4%;
+  padding: 0;
+}
+
+.client-page-first-section{
+  width: 100%;
+  height: 300px;
+  display: flex;
+  background-image: url("../images/clients image.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  align-items: center;
+}
+
+.client-page-first-section h1{
+  margin-left: 11%;
+  color: #f8f9fa;
+  font-family: serif;
+  font-size: 300%;
+}
+
+.client-page-second-section{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 3%;
+}
+
+.modal-body{
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-body-agna{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}

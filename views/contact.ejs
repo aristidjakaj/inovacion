@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Contact-iBusiness</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/nav.css" />
+    <link rel="stylesheet" href="../assets/css/contact.css" />
+    <link rel="stylesheet" href="../assets/css/footer.css" />
+    <link rel="stylesheet" href="../assets/css/contactDiv.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/x-icon" href="../icon.ico">
+  </head>
+  <body>
+    <% include partials/navbar.ejs %>
+    <div class="container">
+      <div class="contact-page-first-section">
+        <h1>CONTACT</h1>
+      </div>
+      <div class="contact-page-second-section">
+        <% if (!locals.sent) { %>
+          <h2>iBusiness</h2>
+          <form method="POST" action="/message_sent">
+            <div class="form-group">
+              <label for="exampleInputBusinessName">Business Name</label>
+              <input type="text" class="form-control" id="exampleInputBusinessName" aria-describedby="businessNameHelp" placeholder="Enter Business Name">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter your Email">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Your Message</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="8"></textarea>
+            </div>
+            <button type="submit" class="btn btn-danger">SEND MESSAGE</button>
+          </form>
+        <% } else { %>
+          <div class="alert alert-success" role="alert">
+            <i class="fas fa-check"></i> The message is sent
+          </div>
+        <% } %>
+      </div>
+    </div>
+    <% include partials/footer.ejs %>
+  </body>
+  <script src="../assets/jquery-3.3.1.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="../assets/ecmascript/navbar_view_control.js"></script>
+</html>

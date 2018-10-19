@@ -1,0 +1,27 @@
+footer{
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid black;
+}
+
+footer a {
+  margin: 1%;
+}
+
+i{
+  font-size: 20px;
+}
+
+.fa-facebook-f{
+  color: #3B5998;
+}
+
+.fa-twitter{
+  color: #1DA1F2;
+}
+
+.fa-linkedin-in{
+  color: #0077B5;
+}
